@@ -1,11 +1,29 @@
 console.log("Script Started")
-var delayInMilliSeconds, startTime, eleTimeText, sTimer
+var delayInMilliSeconds, startTime, eleTimeText, sTimer, dummy
 
 window.addEventListener('DOMContentLoaded',()=>{
     delayInMilliSeconds = 100
     startTime = new Date("JAN, 1, 1990");
     eleTimeText = document.querySelector('#time_text')
     eleTimeMS = document.querySelector('#ms_text')
+    startButton = document.querySelector('#btn_start')
+
+    eleTimeText.parentElement.parentElement.addEventListener('click', function (evt) {
+        if (evt.detail === 3) {
+            toggleMS()
+            
+        }else{
+            if (evt.detail === 1) {
+                if(sTimer == null) {
+                    startTimer()
+                }else{
+                    stopTimer()
+                }
+    
+            }
+        }
+        
+    });
     
 })
  
@@ -23,11 +41,14 @@ function showTime(timeToShow){
 
 function startTimer() {
     console.log("Timer Started")
+    startButton.disabled = true
     sTimer = setInterval(updateTime, delayInMilliSeconds);
 }
 
 function stopTimer() {
     clearInterval(sTimer)
+    sTimer = null
+    startButton.disabled = false
     console.log("Timer Stopped")
 }
 

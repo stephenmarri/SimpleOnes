@@ -7,7 +7,7 @@
     <title>Steve's Stopwatch</title>
 </head>
 <body class="fr">
-    <div id="main_container">
+    <div id="main_container" class="not-selectable">
         <div id="watch_container" class="fr">
             <div id="time"  class="fr" >
                 <span id="time_text">
@@ -17,9 +17,9 @@
             </div>
         </div>
         <div id="controls_container" class="fr">
-            <div id="btn_start" onclick="startTimer()" class="control_button fr">Start</div>
-            <div id="btn_stop" onclick="stopTimer()" class="control_button fr">Stop</div>
-            <div id="btn_reset" onclick="resetTimer()" class="control_button fr">Reset</div>
+            <button id="btn_start" onclick="startTimer()" class="control_button fr">START</button>
+            <button id="btn_stop" onclick="stopTimer()" class="control_button fr">STOP</button>
+            <button id="btn_reset" onclick="resetTimer()" class="control_button fr">RESET</button>
         </div>
     </div>
 </body>
