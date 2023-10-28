@@ -43,12 +43,14 @@ function startTimer() {
     console.log("Timer Started")
     startButton.disabled = true
     sTimer = setInterval(updateTime, delayInMilliSeconds);
+    eleTimeText.parentElement.classList.toggle('running')
 }
 
 function stopTimer() {
     clearInterval(sTimer)
     sTimer = null
     startButton.disabled = false
+    eleTimeText.parentElement.classList.toggle('running')
     console.log("Timer Stopped")
 }
 
