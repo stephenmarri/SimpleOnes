@@ -21,6 +21,10 @@ body {
     flex-direction: row;
 }
 
+.v-none{
+    visibility: hidden;
+}
+
 #main_container {
     width: 60%;
     height: 60%;
