@@ -3,6 +3,9 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 @font-face {
@@ -16,6 +19,10 @@
   flex-direction: row;
 }
 
+.d-none {
+  display: none;
+}
+
 html {
   font-size: 16px;
   width: 100vw;
@@ -26,12 +33,22 @@ html body {
   width: 100%;
   height: 100%;
   background: #FFFEF7;
-  transition: all 3s linear;
+  transition: all 2s linear;
   opacity: 0.7;
 }
 html body #main_container {
   width: 100%;
   height: 100%;
+}
+html body #main_container #dot {
+  height: 2vw;
+  width: 2vw;
+  background-color: black;
+  border: 1px solid white;
+  position: fixed;
+  border-radius: 75%;
+  top: 1vh;
+  right: 1vw;
 }
 html body #main_container #clock {
   width: 70%;
@@ -42,7 +59,7 @@ html body #main_container #clock span {
   font-size: 8cqw;
   color: #020F4C;
   font-weight: bold;
-  transition: all 3s linear;
+  transition: color 2s linear;
 }
 
 @media (max-width: 600px) {

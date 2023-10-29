@@ -1,34 +1,64 @@
+let elbody, elClock, animationInterval, options, delayInMS
 window.addEventListener('DOMContentLoaded', () => {
     console.log('Script Start');
+    elbody = document.querySelector('body')
+    elClock = document.querySelector('#clock_text')
+    delayInMS = 7000
     let elClocktext = document.querySelector('#clock_text');
-    let options = {        
+
+    options = {        
         timeStyle: 'medium',
         timeZone: 'Asia/Kolkata',
         hourCycle: "h12"
     }
 
-    setInterval(()=>{
+    const timeInterval = setInterval(()=>{
         elClocktext.innerText = new Intl.DateTimeFormat('en', options).format(new Date())
     }, 1000)
 
-    setInterval(() => {
-        let ind = getRandomInt(colors.length)
-        let elbody = document.querySelector('body')
-        let elClock = document.querySelector('#clock_text')
-        console.log('original color', elbody.style.backgroundColor);
-        console.log('Inverted color', invertColor(colors[ind]['hex']));
-        
-        console.log('index is',ind);       
-        elbody.style.background= colors[ind]['rgb']
-        elClock.style.color = invertColor(colors[ind]['hex'])
-    }, 7000);
+    animationInterval = setInterval(performAnimation, delayInMS);        
+
+    //easter eggs
+    elbody.addEventListener("dblclick",()=>{ resetColors()})
+    elClock.addEventListener('click',()=>{options.hourCycle = options.hourCycle =='h24' ?'h12': 'h24'})
+
+
 })
+
+function performAnimation(){
+    let ind = getRandomInt(colors.length)
+       
+    console.log('original color', elbody.style.backgroundColor);
+    console.log('Inverted color', invertColor(colors[ind]['hex']));
+    
+    console.log('index is',ind);       
+    elbody.style.background= colors[ind]['rgb']
+    elClock.style.color = invertColor(colors[ind]['hex'])
+}
+
+function resetColors(){
+    console.log('togglig colors');
+
+    elbody.style.background = '#FFFEF7'
+    elClock.style.color = '#020F4C'
+    let dot = document.querySelector('#dot')
+    dot.classList.toggle('d-none');
+    console.log(animationInterval);
+    
+    if(animationInterval == 'undefined' || animationInterval == null) {
+        animationInterval = setInterval(performAnimation, delayInMS);   
+    }else{
+        clearInterval(animationInterval);
+        animationInterval = null
+    }
+}
+
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
 
-  function invertColor(hex) {
+function invertColor(hex) {
     if (hex.indexOf('#') === 0) {
         hex = hex.slice(1);
     }
