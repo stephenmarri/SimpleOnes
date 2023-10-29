@@ -56,7 +56,8 @@ function stopTimer() {
 
 function resetTimer(){
     console.log("Timer Reset")
-    showTime(new Date("JAN, 1, 1990"))
+    startTime = new Date("JAN, 1, 1990")
+    showTime(startTime)
 }
 
 function toggleMS(){
