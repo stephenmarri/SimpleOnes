@@ -1,7 +1,8 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 @font-face {
@@ -9,7 +10,7 @@
     src: url(Nunito-VariableFont_wght.ttf);
 }
 
-.fr{
+.fr {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,22 +27,33 @@ html {
     body {
         width: 100%;
         height: 100%;
-        background-color: #FFFEF7;
+        background: #FFFEF7;
+        transition: all 3s linear;
+        opacity: 0.7;
 
-        #main_container{
+        #main_container {
             width: 100%;
             height: 100%;
 
-            #clock{
+            #clock {
                 width: 70%;
-                height: 30%;        
+                height: 30%;
                 border: 0px solid black;
+                
 
-                span{
+                span {
                     font-size: 8cqw;
                     color: #020F4C;
+                    font-weight: bold;
+                    transition: all 3s linear;
                 }
             }
         }
     }
 }
+
+@media (max-width: 600px) {
+    html body #main_container #clock span  {
+        font-size: 12cqw;
+    }
+    }
