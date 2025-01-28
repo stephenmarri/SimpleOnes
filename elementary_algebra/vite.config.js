@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  // base: "SimpleOnes/elementary_algebra/dist",
+  base: "SimpleOnes/elementary_algebra/dist",
   plugins: [
     react(),
     tailwindcss(),
