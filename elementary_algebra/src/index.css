@@ -3,7 +3,7 @@
 html{
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body{
@@ -13,7 +13,8 @@ body{
 
 #root{
   height: 100%;
-  width: 100%;
+  width: 95%;
+  margin: auto;
 }
 
 .fr{
@@ -27,8 +28,13 @@ main{
   width: max-content;
   border: 0px solid red;
   background-color: whitesmoke;
-  box-shadow: 0 0 1px 0px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: .2rem;
   padding: 1rem 2rem;
+}
+
+h1{
+  font-family: 'Lucida Sans';
 }
 
 #output{
@@ -38,6 +44,10 @@ main{
   margin: 1rem auto;
   font-size: 1.5rem;
   text-align: center;
+  border: 1px solid lightgray;
+  font-weight: 500;
+
+  font-family:  monospace;
 }
 
 #input{
@@ -49,7 +59,9 @@ main{
     width: 45%;
     background-color: white;
     text-align: center;
+    border: 1px solid lightgray;
     font-size: 1.25rem;
+    color: gray;
   }
 }
 
@@ -59,8 +71,17 @@ main{
   justify-content: space-between;
 
   button{
-    padding: 0.25rem 1.25rem;
+    padding: 0.25rem .75rem;
+    background-color: white;
+    font-weight: 600;
+    border-radius: .2rem;
     border: 1px solid darkgray;
+    &:hover{
+      cursor: pointer;
+    }
+    &:active{
+      transform: scale(0.98);
+    }
   }
 }
 
@@ -71,5 +92,16 @@ main{
   padding: 0.25rem .5rem;
   text-transform: uppercase;
   color: darkblue;
+  border-radius: .2rem;
+
   border: 1px solid darkblue;
+
+  &:hover{
+    cursor: pointer;
+  }
+
+  &:active{
+    transform: scale(0.98);
+  }
 }
+
